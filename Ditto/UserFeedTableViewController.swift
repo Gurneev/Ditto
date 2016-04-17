@@ -46,7 +46,6 @@ class UserFeedTableViewController: UITableViewController {
         self.refreshControl = UIRefreshControl()
         self.refreshControl!.attributedTitle = NSAttributedString(string: "Pull to refresh")
         self.refreshControl!.addTarget(self, action: "refresh:", forControlEvents: UIControlEvents.ValueChanged)
-        self.tableView.addSubview(self.refreshControl!) // not required when using UITableViewController
 
     
         
@@ -65,6 +64,9 @@ class UserFeedTableViewController: UITableViewController {
     }
 
     func queryFeeds(notification: NSNotification) {
+        
+        self.refreshControl?.endRefreshing()
+        
 //        posts = notification.object as? [PFObject]
         let objects = notification.object as? [PFObject]
         for object in objects! {
