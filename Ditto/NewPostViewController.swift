@@ -7,18 +7,16 @@
 //
 
 import UIKit
+import Parse
 
-protocol NewPostViewController: class {
-
-    dismissNewPostViewController(viewController: NewPostViewController)
+class NewPostViewControllerDelegate {
     
 }
 
 class NewPostViewController: UIViewController {
 
     //Delegate Object
-    weak var delegate: NewPostViewControllerDelegate? {
-    }
+    weak var delegate: NewPostViewControllerDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,7 +26,7 @@ class NewPostViewController: UIViewController {
 
     
     
-    func dismissNewPostViewController(viewContrller: NewPostViewController)
+//    func dismissNewPostViewController(viewContrller: NewPostViewController)
     
     
     override func didReceiveMemoryWarning() {
@@ -41,7 +39,7 @@ class NewPostViewController: UIViewController {
             if success {
                 
                 //Dismiss
-                delegate?.dismissNewPostViewController(self)
+//                delegate?.dismissNewPostViewController(self)
                 
             } else {
                 
@@ -72,6 +70,10 @@ class NewPostViewController: UIViewController {
         if (postTextView.text != nil){
             Downloader.sharedDownloader.postFeed(postTextView.text)
         }
+        
+        self.navigationController?.dismissViewControllerAnimated(true, completion: { 
+            
+        })
     }
     
 

@@ -7,14 +7,23 @@
 //
 
 import UIKit
-
-var categoriesArray: [int]
+import Parse
 
 let reuseIdentifier = "Cell"
 
 class CategoriesTableViewController: UITableViewController {
     
+    init() {
+        categoriesArray = []
+        super.init(style: UITableViewStyle.Plain)
+    }
     
+    required init?(coder aDecoder: NSCoder) {
+        categoriesArray = []
+        super.init(coder: aDecoder)
+    }
+    
+    var categoriesArray: [Int]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,7 +49,7 @@ class CategoriesTableViewController: UITableViewController {
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return categoriesArray;
+        return categoriesArray.count;
     }
 
     
