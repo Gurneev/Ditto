@@ -18,6 +18,7 @@
 		4BBEA0171CC2D8CA004ADDEC /* DittoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BBEA0161CC2D8CA004ADDEC /* DittoUITests.swift */; };
 		4BBEA0251CC2DFBC004ADDEC /* UserFeedTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BBEA0241CC2DFBC004ADDEC /* UserFeedTableViewController.swift */; };
 		4BFEABE31CC2E6100085FED4 /* Downloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BFEABE21CC2E6100085FED4 /* Downloader.swift */; };
+		4E7EFA351CC342060035712D /* CategoriesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E7EFA341CC342060035712D /* CategoriesTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +58,7 @@
 		4BBEA0241CC2DFBC004ADDEC /* UserFeedTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserFeedTableViewController.swift; sourceTree = "<group>"; };
 		4BBEA0261CC2E0AA004ADDEC /* BridgingHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BridgingHeader.h; sourceTree = "<group>"; };
 		4BFEABE21CC2E6100085FED4 /* Downloader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Downloader.swift; sourceTree = "<group>"; };
+		4E7EFA341CC342060035712D /* CategoriesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoriesTableViewController.swift; sourceTree = "<group>"; };
 		AE1406AC0F0E3AE33D408A9C /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -167,6 +169,7 @@
 			children = (
 				4B2B6D351CC31064000BF3E3 /* NewPostViewController.swift */,
 				4BBEA0241CC2DFBC004ADDEC /* UserFeedTableViewController.swift */,
+				4E7EFA341CC342060035712D /* CategoriesTableViewController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -369,6 +372,7 @@
 				4BBEA0251CC2DFBC004ADDEC /* UserFeedTableViewController.swift in Sources */,
 				4BBE9FF41CC2D8CA004ADDEC /* AppDelegate.swift in Sources */,
 				4BFEABE31CC2E6100085FED4 /* Downloader.swift in Sources */,
+				4E7EFA351CC342060035712D /* CategoriesTableViewController.swift in Sources */,
 				4BBE9FFC1CC2D8CA004ADDEC /* Ditto.xcdatamodeld in Sources */,
 				4B2B6D361CC31064000BF3E3 /* NewPostViewController.swift in Sources */,
 			);
