@@ -49,12 +49,15 @@ class Downloader: NSObject {
     }
 
 
-    func postFeed(text: String){
+    func postFeed(title: String, category: PFObject, description: String) {
+        
         PFGeoPoint.geoPointForCurrentLocationInBackground { (geopoint , error) in
             if let geopoint = geopoint {
                 let object = PFObject(className: "UserFeed")
-                object.setValue(text, forKey: "post")
+                object.setValue(title, forKey: "post")
                 object.setValue(geopoint, forKey: "location")
+                object.setValue(category, forKey: "category")
+                object.setValue(description, forKey: "description")
                 
                 if let user = PFUser.currentUser() {
                     object.setValue(user, forKey: "fromUser")
@@ -65,8 +68,17 @@ class Downloader: NSObject {
                     dispatch_async(dispatch_get_main_queue()) {
                         NSNotificationCenter.defaultCenter().postNotificationName(postNotification, object: success)
                     }
-                    
+//                  
+//                    let relation = category.valueForKey("posts") as! PFRelation
+//                    relation.addObject(object)
+//                    category.saveInBackground()
+//                    
+//                    category.saveInBackgroundWithBlock({ (success, error) -> Void in
+//                        print("We wanna save the category")
+//                    })
+//                    
                 })
+    
             }
 
         }

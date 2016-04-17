@@ -62,7 +62,7 @@
                                     <constraint firstAttribute="height" constant="86" id="afV-nH-Emk"/>
                                 </constraints>
                             </pickerView>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Description..." minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="q1x-Ac-Zy6">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" borderStyle="roundedRect" placeholder="Enter Description..." minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="q1x-Ac-Zy6">
                                 <rect key="frame" x="24" y="294" width="546" height="200"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -93,11 +93,6 @@
                         <barButtonItem key="leftBarButtonItem" title="Cancel" id="Jrn-jh-HtG">
                             <connections>
                                 <action selector="dismissViewController:" destination="Hqb-9i-Tg5" id="h4R-CW-Vbh"/>
-                            </connections>
-                        </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="Send" id="OBr-PL-Ipl">
-                            <connections>
-                                <action selector="sendPost:" destination="Hqb-9i-Tg5" id="6QO-4X-NDf"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
