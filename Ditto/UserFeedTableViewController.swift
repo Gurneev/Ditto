@@ -18,7 +18,7 @@ class Post {
     
     init(object: PFObject) {
         post = object.valueForKey("post") as! String
-        user = object.valueForKey("user") as! PFUser
+        user = object.valueForKey("fromUser") as! PFUser
         parseObject = object
     }
 }
@@ -82,7 +82,7 @@ extension UserFeedTableViewController {
         // Configure the cell...
         cell.textLabel?.text = "hello its me"
         
-        cell.textLabel?.text
+        cell.textLabel?.text = posts![indexPath.row].post!
         
 
         return cell
