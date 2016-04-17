@@ -18,11 +18,9 @@ class NewPostViewController: UIViewController, UIPickerViewDataSource, UIPickerV
     //Delegate Object
     weak var delegate: NewPostViewControllerDelegate?
     
-    
-    
     @IBOutlet weak var categoryField: UIPickerView!
     
-    var pickerData: [String] = [String]()
+    var pickerData: [PFObject] = [PFObject]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,7 +32,9 @@ class NewPostViewController: UIViewController, UIPickerViewDataSource, UIPickerV
         self.categoryField.dataSource = self
         
         // Input data into the Array:
-        pickerData = ["Item 1", "Item 2", "Item 3", "Item 4", "Item 5", "Item 6"]
+//        pickerData = ["Item 1", "Item 2", "Item 3", "Item 4", "Item 5", "Item 6"]
+        pickerData = []
+        getCategories()
     
     }
 
@@ -51,7 +51,7 @@ class NewPostViewController: UIViewController, UIPickerViewDataSource, UIPickerV
     }
     
     func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return pickerData[row]
+        return pickerData[row].valueForKey("title") as! String
     }
     
     override func didReceiveMemoryWarning() {
@@ -59,6 +59,18 @@ class NewPostViewController: UIViewController, UIPickerViewDataSource, UIPickerV
         // Dispose of any resources that can be recreated.
     }
     
+    func getCategories() {
+        let query = PFQuery(className: "Category")
+        query.findObjectsInBackgroundWithBlock { (objects, error) -> Void in
+            if error == nil {
+                for object in objects! {
+                    self.pickerData.append(object)
+                }
+            }
+            
+            self.categoryField.reloadAllComponents()
+        }
+    }
     
     
     func posted(notification: NSNotification){
@@ -92,7 +104,9 @@ class NewPostViewController: UIViewController, UIPickerViewDataSource, UIPickerV
     @IBAction func submit(sender: UIButton) {
         var titleText = titleField.text
         var descriptionText = descriptionField.text
-//        var categoryChoice = categoryField.
+        var categoryChoice = pickerData[categoryField.selectedRowInComponent(0)] as! PFObject
+        
+        Downloader.sharedDownloader.postFeed(titleText!, category: categoryChoice, description: descriptionText!)
     }
     
     @IBOutlet weak var postTextView: UITextView!
@@ -100,19 +114,12 @@ class NewPostViewController: UIViewController, UIPickerViewDataSource, UIPickerV
     
     @IBAction func dismissViewController(sender: UIBarButtonItem) {
     
+        self.navigationController?.dismissViewControllerAnimated(true, completion: nil)
     
     }   
     
     
-    @IBAction func sendPost(sender: UIBarButtonItem) {
-        if (postTextView.text != nil){
-            Downloader.sharedDownloader.postFeed(postTextView.text)
-        }
-        
-        self.navigationController?.dismissViewControllerAnimated(true, completion: { 
-            
-        })
-    }
+
     
 
 
