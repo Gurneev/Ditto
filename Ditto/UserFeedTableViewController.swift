@@ -64,6 +64,9 @@ class UserFeedTableViewController: UITableViewController {
     }
 
     func queryFeeds(notification: NSNotification) {
+        
+        self.refreshControl?.endRefreshing()
+        
 //        posts = notification.object as? [PFObject]
         let objects = notification.object as? [PFObject]
         for object in objects! {
