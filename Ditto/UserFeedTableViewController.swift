@@ -17,6 +17,8 @@ class Post {
     var category:PFObject!
     var upvoteCount:Int!
     
+    
+    
     init(object: PFObject) {
         title = object.valueForKey("post") as! String
         user = object.valueForKey("fromUser") as! PFUser
@@ -27,15 +29,19 @@ class Post {
     }
 }
 
-class UserFeedTableViewController: UITableViewController {
 
+
+
+class UserFeedTableViewController: UITableViewController {
+   
+    
     private var posts: [Post]? {
         didSet {
             tableView.reloadData()
         }
     }
     
-    
+   
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -55,6 +61,10 @@ class UserFeedTableViewController: UITableViewController {
         
         posts = []
         
+    }
+    
+    override func  preferredStatusBarStyle()-> UIStatusBarStyle {
+        return UIStatusBarStyle.LightContent
     }
     
 

@@ -10,15 +10,27 @@ import UIKit
 import CoreData
 import Parse
 
-@UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
 
+
+@UIApplicationMain
+class AppDelegate: UIResponder, UIApplicationDelegate, UITabBarDelegate{
+    
     var window: UIWindow?
+    
+    
+    
+    let navigationbarApearence = UINavigationBar.appearance().backgroundColor = UIColor.blackColor()
+    let navigationbarapearence1 = UINavigationBar.appearance().barTintColor = UIColor.blackColor()
+    
+    //let lk = UINavigationBar.appearance().titleTextAttributes = UIColor.redColor()
+   // let navbulshit = UINavigationBar.appearance().titleTextAttributes = [UITextAttributeTextColor: UIColor.redColor()]
+  
+    let hello = UINavigationBar.appearance().titleTextAttributes = [NSForegroundColorAttributeName: UIColor.redColor()]
     
     private let appKey = "4nChUMFYhWuzykvrIWWbgPusDV4hESI0WwcPV6h6"
     private let clientKey = "AvIv79JtLBaSThKUJPocqt02E5ibrLrfyiErScKq"
     
-
+    
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
@@ -30,7 +42,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 print(user)
             }
         }
-            
+        
         return true
     }
 
@@ -122,4 +134,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
 }
+
+
 

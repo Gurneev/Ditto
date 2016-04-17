@@ -27,7 +27,7 @@ class Downloader: NSObject {
             if !(error != nil) {
                 if let geoPoint = geopoint{
                     let query = PFQuery(className: "UserFeed")
-                    query.whereKey("location", nearGeoPoint: geoPoint, withinMiles: 5)
+                    query.whereKey("location", nearGeoPoint: geoPoint, withinMiles: 50)
                     query.limit = 15
                     
                     query.findObjectsInBackgroundWithBlock { (object, error) in
