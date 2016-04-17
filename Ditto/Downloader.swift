@@ -33,7 +33,7 @@ class Downloader: NSObject {
                     query.findObjectsInBackgroundWithBlock { (object, error) in
                         
                         if let object = object {
-                            let obj = object as![PFObject]
+                            let obj = object
                             print(obj)
                             
                     
@@ -84,11 +84,7 @@ class Downloader: NSObject {
         }
 
     }
-        
-
-
-
-
+    
 
 
 
