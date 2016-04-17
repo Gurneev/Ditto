@@ -71,7 +71,7 @@ class NewPostViewController: UIViewController, UIPickerViewDataSource, UIPickerV
             if success {
                 
                 //Dismiss
-                delegate?.dismissNewPostViewController(self)
+//                delegate?.dismissNewPostViewController(self)
                 
             } else {
                 
@@ -113,6 +113,10 @@ class NewPostViewController: UIViewController, UIPickerViewDataSource, UIPickerV
         if (postTextView.text != nil){
             Downloader.sharedDownloader.postFeed(postTextView.text)
         }
+        
+        self.navigationController?.dismissViewControllerAnimated(true, completion: { 
+            
+        })
     }
     
 

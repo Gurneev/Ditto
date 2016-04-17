@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+import Parse
 
 let queryNoticiation = "queryUserFeedNotification"
 let postNotification = "postNotification"
@@ -65,6 +65,7 @@ class Downloader: NSObject {
                     dispatch_async(dispatch_get_main_queue()) {
                         NSNotificationCenter.defaultCenter().postNotificationName(postNotification, object: success)
                     }
+                    
                 })
             }
 

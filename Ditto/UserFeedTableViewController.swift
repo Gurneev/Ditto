@@ -7,13 +7,25 @@
 //
 
 import UIKit
+import Parse
 
+//let reuseIdentifier = "Cell"
 
-let reuseIdentifier = "Cell"
+class Post {
+    var post:String!
+    var user:PFUser
+    var parseObject:PFObject!
+    
+    init(object: PFObject) {
+        post = object.valueForKey("post") as! String
+        user = object.valueForKey("user") as! PFUser
+        parseObject = object
+    }
+}
 
-class UserFeedTableViewController: UITableViewController, NewPostViewControllerDelegate {
+class UserFeedTableViewController: UITableViewController {
 
-    private var posts: [PFObject]? {
+    private var posts: [Post]? {
         didSet {
             tableView.reloadData()
         }
@@ -28,12 +40,16 @@ class UserFeedTableViewController: UITableViewController, NewPostViewControllerD
         
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "queryFeeds:", name: "queryUserFeedNotification", object: nil)
-
+        
         
     }
     
     func queryFeeds(notification: NSNotification) {
-        posts = notification.object as? [PFObject]
+//        posts = notification.object as? [PFObject]
+        let objects = notification.object as? [PFObject]
+        for object in objects! {
+            posts?.append(Post(object: object))
+        }
     }
     
 
@@ -43,7 +59,7 @@ class UserFeedTableViewController: UITableViewController, NewPostViewControllerD
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        <#code#>
+        
     }
     
     
@@ -55,7 +71,7 @@ extension UserFeedTableViewController {
 
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return posts?.count ?? 0
+        return (posts?.count)!
     }
 
     
@@ -64,6 +80,8 @@ extension UserFeedTableViewController {
 
         // Configure the cell...
         cell.textLabel?.text = "hello its me"
+        
+        cell.textLabel?.text
         
 
         return cell
