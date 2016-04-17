@@ -43,12 +43,27 @@ class UserFeedTableViewController: UITableViewController {
         Downloader.sharedDownloader.queryForPosts()
         
         
+        self.refreshControl = UIRefreshControl()
+        self.refreshControl!.attributedTitle = NSAttributedString(string: "Pull to refresh")
+        self.refreshControl!.addTarget(self, action: "refresh:", forControlEvents: UIControlEvents.ValueChanged)
+        self.tableView.addSubview(self.refreshControl!) // not required when using UITableViewController
+
+    
+        
+        
+        
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "queryFeeds:", name: "queryUserFeedNotification", object: nil)
         
         posts = []
         
     }
     
+
+    func refresh(sender:AnyObject){
+        
+        Downloader.sharedDownloader.queryForPosts()
+    }
+
     func queryFeeds(notification: NSNotification) {
 //        posts = notification.object as? [PFObject]
         let objects = notification.object as? [PFObject]
