@@ -55,8 +55,7 @@ class CategoriesTableViewController: UITableViewController {
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return array.count;
+        return 5;
     }
 
     func getData() {
@@ -78,7 +77,7 @@ class CategoriesTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath) as! MyCustomTableViewCell
         
         array = ["black", "gay", "Racial"]
-        cell.categoryLabel.text = array[indexPath.row]
+        cell.categoryLabel.text = "rectom"
         cell.descriptionLabel.text = "Description"
 
         return cell
