@@ -41,6 +41,7 @@ class UserFeedTableViewController: UITableViewController {
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "queryFeeds:", name: "queryUserFeedNotification", object: nil)
         
+        posts = []
         
     }
     

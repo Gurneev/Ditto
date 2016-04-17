@@ -7,12 +7,7 @@
 //
 
 import UIKit
-//
-//protocol NewPostViewController: class {
-//
-//    dismissNewPostViewController(viewController: NewPostViewController)
-//    
-//
+import Parse
 
 class NewPostViewControllerDelegate {
     
@@ -45,7 +40,7 @@ class NewPostViewController: UIViewController, UIPickerViewDataSource, UIPickerV
 
     
     
-    //func dismissNewPostViewController(viewContrller: NewPostViewController)
+//    func dismissNewPostViewController(viewContrller: NewPostViewController)
     
     func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
         return 1
@@ -97,7 +92,7 @@ class NewPostViewController: UIViewController, UIPickerViewDataSource, UIPickerV
     @IBAction func submit(sender: UIButton) {
         var titleText = titleField.text
         var descriptionText = descriptionField.text
-        var categoryChoice = categoryField.
+//        var categoryChoice = categoryField.
     }
     
     @IBOutlet weak var postTextView: UITextView!
