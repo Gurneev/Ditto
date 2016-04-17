@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15A284" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="rfL-Ke-izv">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="14F1713" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="rfL-Ke-izv">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
     </dependencies>
     <scenes>
         <!--New Post-->
@@ -10,28 +10,49 @@
             <objects>
                 <viewController id="Hqb-9i-Tg5" customClass="NewPostViewController" customModule="Ditto" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="CPO-i1-dog"/>
-                        <viewControllerLayoutGuide type="bottom" id="kNe-Cg-wEw"/>
+                        <viewControllerLayoutGuide type="top" id="7oP-OF-ol0"/>
+                        <viewControllerLayoutGuide type="bottom" id="Dm7-u2-wOt"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="8Tz-ve-MOD">
+                    <view key="view" contentMode="scaleToFill" id="6IC-2z-V2d">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="MXT-jh-5Id">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="16"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rmw-Di-SVH">
+                                <rect key="frame" x="261" y="518" width="78" height="30"/>
+                                <state key="normal" title="SUBMIT"/>
+                                <connections>
+                                    <action selector="submit:" destination="Hqb-9i-Tg5" eventType="touchUpInside" id="PKd-de-BJZ"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Title:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fAl-a1-2Uf">
+                                <rect key="frame" x="24" y="72" width="38" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Category" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="o1A-Wv-zic">
+                                <rect key="frame" x="24" y="157" width="71" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="JgK-Dc-xq8">
+                                <rect key="frame" x="24" y="101" width="546" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="iXC-fj-NYd">
+                                <rect key="frame" x="24" y="180" width="546" height="86"/>
+                            </pickerView>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Description..." minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="q1x-Ac-Zy6">
+                                <rect key="frame" x="24" y="294" width="546" height="200"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="MXT-jh-5Id" firstAttribute="bottom" secondItem="kNe-Cg-wEw" secondAttribute="top" id="CLq-Fp-bFm"/>
-                            <constraint firstItem="MXT-jh-5Id" firstAttribute="leading" secondItem="8Tz-ve-MOD" secondAttribute="leading" id="bMi-4x-jzo"/>
-                            <constraint firstItem="MXT-jh-5Id" firstAttribute="top" secondItem="8Tz-ve-MOD" secondAttribute="top" id="dCf-BC-Ah0"/>
-                            <constraint firstAttribute="trailing" secondItem="MXT-jh-5Id" secondAttribute="trailing" id="hmm-zu-Xaj"/>
-                        </constraints>
                     </view>
+                    <toolbarItems/>
                     <navigationItem key="navigationItem" title="New Post" id="apI-fu-n49">
                         <barButtonItem key="leftBarButtonItem" title="Cancel" id="Jrn-jh-HtG">
                             <connections>
@@ -44,8 +65,11 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
-                        <outlet property="postTextView" destination="MXT-jh-5Id" id="Eui-7f-Mko"/>
+                        <outlet property="categoryField" destination="iXC-fj-NYd" id="LLK-Nn-DH7"/>
+                        <outlet property="descriptionField" destination="q1x-Ac-Zy6" id="yCu-4x-Bbo"/>
+                        <outlet property="titleField" destination="JgK-Dc-xq8" id="nbd-9h-vHc"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PxK-U7-het" userLabel="First Responder" sceneMemberID="firstResponder"/>
