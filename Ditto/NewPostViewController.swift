@@ -35,10 +35,17 @@ class NewPostViewController: UIViewController, UIPickerViewDataSource, UIPickerV
 //        pickerData = ["Item 1", "Item 2", "Item 3", "Item 4", "Item 5", "Item 6"]
         pickerData = []
         getCategories()
-    
-    }
 
+        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: "dismissKeyboard:")
+        self.view.addGestureRecognizer(tapGestureRecognizer)
+        
+    }
     
+    func dismissKeyboard(gestureRecognizer: UITapGestureRecognizer) {
+        print("We did some shit")
+        self.titleField.resignFirstResponder()
+        self.descriptionField.resignFirstResponder()
+    }
     
 //    func dismissNewPostViewController(viewContrller: NewPostViewController)
     
