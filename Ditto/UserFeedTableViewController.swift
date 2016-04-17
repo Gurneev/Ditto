@@ -18,7 +18,7 @@ class Post {
     
     init(object: PFObject) {
         post = object.valueForKey("post") as! String
-        user = object.valueForKey("user") as! PFUser
+        user = object.valueForKey("fromUser") as! PFUser
         parseObject = object
     }
 }
@@ -40,6 +40,8 @@ class UserFeedTableViewController: UITableViewController {
         
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "queryFeeds:", name: "queryUserFeedNotification", object: nil)
+        
+        posts = []
         
         
     }
@@ -81,7 +83,7 @@ extension UserFeedTableViewController {
         // Configure the cell...
         cell.textLabel?.text = "hello its me"
         
-        cell.textLabel?.text
+        cell.textLabel?.text = posts![indexPath.row].post!
         
 
         return cell
