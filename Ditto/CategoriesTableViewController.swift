@@ -10,8 +10,12 @@ import UIKit
 import Parse
 
 let reuseIdentifier = "Cell"
+var array = [String]()
+
 
 class CategoriesTableViewController: UITableViewController {
+    var categories:[PFObject]!
+    
     
     init() {
         categoriesArray = []
@@ -33,6 +37,9 @@ class CategoriesTableViewController: UITableViewController {
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+        
+        categories =  []
+        getData()
     }
 
     override func didReceiveMemoryWarning() {
@@ -49,18 +56,40 @@ class CategoriesTableViewController: UITableViewController {
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return categoriesArray.count;
+        return array.count;
     }
 
+    func getData() {
+        
+        let query = PFQuery(className: "category")
+        query.findObjectsInBackgroundWithBlock { (objects, error) in
+            if error != nil {
+                
+                for object in objects! {
+                    self.categories.append(object)
+                }
+                
+            }
+        }
+        
+    }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("reuseIdentifier", forIndexPath: indexPath)
-
+        let cell = tableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath) as! MyCustomTableViewCell
         
+        array = ["black", "gay", "Racial"]
+        cell.categoryLabel.text = array[indexPath.row]
+        cell.descriptionLabel.text = "Description"
 
         return cell
     }
     
+    class MyCustomTableViewCell: UITableViewCell {
+        @IBOutlet weak var categoryLabel: UILabel!
+        @IBOutlet weak var descriptionLabel: UILabel!
+        
+        
+    }
 
     /*
     // Override to support conditional editing of the table view.
