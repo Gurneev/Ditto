@@ -13,10 +13,23 @@ import CoreData
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
+    
+    private let appKey = "4nChUMFYhWuzykvrIWWbgPusDV4hESI0WwcPV6h6"
+    private let clientKey = "AvIv79JtLBaSThKUJPocqt02E5ibrLrfyiErScKq"
+    
 
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
+        
+        Parse.setApplicationId(appKey, clientKey: clientKey)
+        
+        if !(PFUser.currentUser() != nil){
+            PFAnonymousUtils.logInWithBlock { (user , error) in
+                print(user)
+            }
+        }
+            
         return true
     }
 

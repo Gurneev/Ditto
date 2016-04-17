@@ -1,25 +1,127 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6211" systemVersion="14A298i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="14F1713" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Axx-BC-W2U">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6204"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
-        <scene sceneID="tne-QT-ifu">
+        <!--New Post-->
+        <scene sceneID="Hks-dT-XeT">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="Hqb-9i-Tg5" customClass="NewPostViewController" customModule="Ditto" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
-                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                        <viewControllerLayoutGuide type="top" id="CPO-i1-dog"/>
+                        <viewControllerLayoutGuide type="bottom" id="kNe-Cg-wEw"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                    <view key="view" contentMode="scaleToFill" id="8Tz-ve-MOD">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="MXT-jh-5Id">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="16"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="MXT-jh-5Id" firstAttribute="bottom" secondItem="kNe-Cg-wEw" secondAttribute="top" id="CLq-Fp-bFm"/>
+                            <constraint firstItem="MXT-jh-5Id" firstAttribute="leading" secondItem="8Tz-ve-MOD" secondAttribute="leading" id="bMi-4x-jzo"/>
+                            <constraint firstItem="MXT-jh-5Id" firstAttribute="top" secondItem="8Tz-ve-MOD" secondAttribute="top" id="dCf-BC-Ah0"/>
+                            <constraint firstAttribute="trailing" secondItem="MXT-jh-5Id" secondAttribute="trailing" id="hmm-zu-Xaj"/>
+                        </constraints>
                     </view>
+                    <navigationItem key="navigationItem" title="New Post" id="apI-fu-n49">
+                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="Jrn-jh-HtG">
+                            <connections>
+                                <action selector="dismissViewController:" destination="Hqb-9i-Tg5" id="h4R-CW-Vbh"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Send" id="OBr-PL-Ipl">
+                            <connections>
+                                <action selector="sendPost:" destination="Hqb-9i-Tg5" id="6QO-4X-NDf"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="postTextView" destination="MXT-jh-5Id" id="Eui-7f-Mko"/>
+                    </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="PxK-U7-het" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="1039" y="-1223"/>
+        </scene>
+        <!--DITTO-->
+        <scene sceneID="4Hv-ZK-ZSE">
+            <objects>
+                <tableViewController id="Ap4-sW-ofr" customClass="UserFeedTableViewController" customModule="Ditto" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="2Yf-O6-pxc">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" id="tc6-yv-xNN">
+                                <rect key="frame" x="0.0" y="92" width="600" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="tc6-yv-xNN" id="BDE-hq-RuQ">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="Ap4-sW-ofr" id="cbf-oc-45z"/>
+                            <outlet property="delegate" destination="Ap4-sW-ofr" id="GbP-sI-COC"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="DITTO" id="raf-7B-5UC">
+                        <barButtonItem key="rightBarButtonItem" systemItem="compose" id="SWW-Yj-nme">
+                            <connections>
+                                <segue destination="KgF-fL-wCO" kind="presentation" id="1R6-za-gOj"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Vuc-fZ-hAc" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-493" y="-1223"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="S6w-0h-tGd">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Axx-BC-W2U" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="dqB-d8-Nng">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Ap4-sW-ofr" kind="relationship" relationship="rootViewController" id="Bdc-bl-cfc"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Blf-43-xjP" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1305" y="-1223"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="FtW-Rm-gUg">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="KgF-fL-wCO" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="AEV-ai-bjC">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Hqb-9i-Tg5" kind="relationship" relationship="rootViewController" id="HQA-zP-q04"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="69k-fO-yUH" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="227" y="-1223"/>
         </scene>
     </scenes>
 </document>
