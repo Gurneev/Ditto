@@ -28,7 +28,7 @@ class UserFeedTableViewController: UITableViewController, NewPostViewControllerD
         
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "queryFeeds:", name: "queryUserFeedNotification", object: nil)
-
+        
         
     }
     
