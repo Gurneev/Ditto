@@ -107,6 +107,8 @@ class NewPostViewController: UIViewController, UIPickerViewDataSource, UIPickerV
         var categoryChoice = pickerData[categoryField.selectedRowInComponent(0)] as! PFObject
         
         Downloader.sharedDownloader.postFeed(titleText!, category: categoryChoice, description: descriptionText!)
+        
+        self.navigationController?.dismissViewControllerAnimated(true, completion: nil)
     }
     
     @IBOutlet weak var postTextView: UITextView!
