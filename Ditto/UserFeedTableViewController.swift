@@ -47,7 +47,6 @@ class UserFeedTableViewController: UITableViewController {
         
         posts = []
         
-        
     }
     
     func queryFeeds(notification: NSNotification) {
