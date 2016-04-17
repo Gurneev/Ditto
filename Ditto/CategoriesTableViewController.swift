@@ -18,7 +18,7 @@ class CategoriesTableViewController: UITableViewController {
     
     
     init() {
-        categoriesArray = []
+            categoriesArray = []
         super.init(style: UITableViewStyle.Plain)
     }
     
