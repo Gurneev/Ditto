@@ -11,7 +11,7 @@ import UIKit
 
 let reuseIdentifier = "Cell"
 
-class UserFeedTableViewController: UITableViewController {
+class UserFeedTableViewController: UITableViewController, NewPostViewControllerDelegate {
 
     private var posts: [PFObject]? {
         didSet {
@@ -40,6 +40,10 @@ class UserFeedTableViewController: UITableViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        <#code#>
     }
     
     

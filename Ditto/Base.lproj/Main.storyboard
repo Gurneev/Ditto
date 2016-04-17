@@ -78,7 +78,7 @@
                     <navigationItem key="navigationItem" title="DITTO" id="raf-7B-5UC">
                         <barButtonItem key="rightBarButtonItem" systemItem="compose" id="SWW-Yj-nme">
                             <connections>
-                                <segue destination="KgF-fL-wCO" kind="presentation" id="1R6-za-gOj"/>
+                                <segue destination="KgF-fL-wCO" kind="presentation" identifier="postSegue" id="1R6-za-gOj"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>

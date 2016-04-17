@@ -10,6 +10,8 @@ import UIKit
 
 
 let queryNoticiation = "queryUserFeedNotification"
+let postNotification = "postNotification"
+
 
 class Downloader: NSObject {
 
@@ -53,13 +55,23 @@ class Downloader: NSObject {
                 let object = PFObject(className: "UserFeed")
                 object.setValue(text, forKey: "post")
                 object.setValue(geopoint, forKey: "location")
-                object.setValue(PFUser.currentUser(), forKey: "fromUser")
+                
+                if let user = PFUser.currentUser() {
+                    object.setValue(user, forKey: "fromUser")
+                }
+                
+                object.saveInBackgroundWithBlock({ (success, error) -> Void in
+                    
+                    dispatch_async(dispatch_get_main_queue()) {
+                        NSNotificationCenter.defaultCenter().postNotificationName(postNotification, object: success)
+                    }
+                })
             }
+
+        }
+
     }
-
-
-
-
+        
 
 
 
@@ -69,6 +81,3 @@ class Downloader: NSObject {
 
 
 }
-
-
-

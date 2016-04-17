@@ -8,40 +8,72 @@
 
 import UIKit
 
+protocol NewPostViewController: class {
+
+    dismissNewPostViewController(viewController: NewPostViewController)
+    
+}
+
 class NewPostViewController: UIViewController {
 
+    //Delegate Object
+    weak var delegate: NewPostViewControllerDelegate? {
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "posted:", name: postNotification, object: nil)
     }
 
+    
+    
+    func dismissNewPostViewController(viewContrller: NewPostViewController)
+    
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
-    @IBAction func dismissViewController(sender: UIBarButtonItem) {
+    func posted(notification: NSNotification){
+        if let success = notification.object as? Bool {
+            if success {
+                
+                //Dismiss
+                delegate?.dismissNewPostViewController(self)
+                
+            } else {
+                
+                let alert = UIAlertController(title: "Error", message: "Could not post", preferredStyle: UIAlertControllerStyle.Alert)
+                alert.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.Cancel, handler: { (action) -> Void in
+                    //self.dismissViewControllerAnimated(true, completion: nil)
+                    
+                }))
+                
+                self.presentViewController(alert, animated: true, completion: nil)
+            
+            }
+        }
     }
-
+    
     
     
     @IBOutlet weak var postTextView: UITextView!
+
+    
+    @IBAction func dismissViewController(sender: UIBarButtonItem) {
+    
+    
+    }   
+    
     
     @IBAction func sendPost(sender: UIBarButtonItem) {
-        if count(postTextView.text) > 0 {
+        if (postTextView.text != nil){
             Downloader.sharedDownloader.postFeed(postTextView.text)
         }
     }
     
-    /*
-    // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }
